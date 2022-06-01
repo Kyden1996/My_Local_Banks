@@ -3,6 +3,7 @@ package sg.edu.rp.c346.id21030068.mylocalbanks;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     TextView OCBC;
     TextView UOB;
     String wordClicked = "";
+    boolean flag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "18001111111"));
                 startActivity(intent);
 
+            } else if (item.getItemId() == 2){
+                DBS.setTextColor(Color.parseColor("#ff0000"));
+                flag = false;
+
+            } else{
+                DBS.setTextColor(Color.BLACK);
+                flag = true;
             }
 
         } else if (wordClicked.equalsIgnoreCase("OCBC")) {
@@ -73,6 +82,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "18003633333"));
                 startActivity(intent);
 
+            } else if (item.getItemId() == 2){
+                OCBC.setTextColor(Color.parseColor("#ff0000"));
+                flag = false;
+
+            } else{
+                DBS.setTextColor(Color.BLACK);
+                flag = true;
             }
 
         } else if (wordClicked.equalsIgnoreCase("UOB")) {
@@ -84,6 +100,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "18002222121"));
                 startActivity(intent);
 
+            } else if (item.getItemId() == 2){
+                UOB.setTextColor(Color.parseColor("#ff0000"));
+                flag = false;
+
+            } else{
+                DBS.setTextColor(Color.BLACK);
+                flag = true;
             }
         }
         return super.onContextItemSelected(item);
